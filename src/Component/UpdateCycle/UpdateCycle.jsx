@@ -4,14 +4,20 @@ export class UpdateCycle extends Component {
 
     static getDerivedStateFromProps(prop , state) {
 
-        console.log("should component update from update")
+        console.log("getDerivedStateFromProps update from update")
         return null ;
 
     }
     shouldComponentUpdate(nextProp ,nextState){
 
-        console.log( nextProp , this.prop ,"should Component Update hit" ,)
-        return true
+        console.log( nextProp.countVal , this.props.countVal ,"should Component Update hit" )
+
+        if( nextProp.countVal !== this.props.countVal) {
+            return true
+        }else {
+            return false
+        }
+        
 
     }
 
@@ -23,12 +29,12 @@ export class UpdateCycle extends Component {
     componentWillUnmount(){
         //called immediately after the components get removed
         console.log(" it will hit once it unmounted")  
-        window.removeEventListener()  ;
+       
     }
 
     render() {
 
-        console.log("redner hit ");
+        console.log("******************redner hit************ ");
         const {showItem, countVal} = this.props;
         return (
            showItem && <div>

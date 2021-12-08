@@ -6,11 +6,15 @@ export class Creation extends Component {
     super(props);
     this.state = {
       count: 0,
-      showItem : false
+      showItem : false,
+      sameValue:''
     };
     console.log("constructor");
   }
   componentDidMount() {
+    setInterval(() => {
+      this.setState({sameValue:10})
+    }, 2000);
     console.log("didmount");
   }
 
@@ -28,7 +32,7 @@ export class Creation extends Component {
  
   render() {
     console.log("render");
-    const { testVal = "nothing passed" } = this.props;
+    // const { testVal = "nothing passed" } = this.props;
     const { count = "defaultVal" , showItem } = this.state;
 
     return (
